@@ -1,0 +1,159 @@
+/* Réinitialisation des marges, des rembourrages et utilisation de la boîte de bordure comme modèle de dimensionnement par défaut */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border : none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family : 'Poppins', sans-serif;
+}
+
+:root {
+    --bg-color: #1f242d;
+    --second-bg-color: #323946;
+    --text-color: #fff;
+    --main-color: #0ef;
+    --header-color: #1f242d;
+}
+
+/* Styles pour le corps de la page */
+body {
+    background: var(--header-color);
+    /* Centrage des éléments */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Définition d'un minimum de largeur pour éviter la distorsion de l'ellipse */
+    min-width: 100vh;
+    /* Bordure arrondie pour créer une forme elliptique */
+    border-radius: 50%;
+}
+
+/* Styles pour la boîte centrale */
+.box {
+    /* Position relative pour les éléments positionnés à l'intérieur */
+    position: relative;
+    /* Taille de la boîte */
+    width: 400px;
+    height: 400px;
+    /* Fond transparent pour laisser apparaître l'arrière-plan */
+    background: transparent;
+    /* Bordure arrondie pour créer une forme elliptique */
+    border-radius: 50%;
+    /* Cacher le contenu qui déborde de la boîte */
+    overflow: hidden;
+}
+
+/* Styles pour le pseudo-élément avant */
+.box::before {
+    /* Contenu vide */
+    content: '';
+    /* Position absolue pour positionner l'élément par rapport à son conteneur */
+    position: absolute;
+    /* Position et taille de l'élément avant */
+    inset: -30px 70px;
+    /* Dégradé linéaire pour le fond de l'élément avant */
+    background: linear-gradient(315deg, var(--main-color),var(--main-color));
+    /* Transition pour un effet de transition fluide */
+    transition: 0.5s;
+    /* Animation pour faire tourner l'élément avant en continu */
+    animation: animate 4s linear infinite;
+}
+
+/* Changement de la position de l'élément avant lorsqu'il est survolé */
+.box:hover::before {
+    inset: -20px 0;
+}
+
+/* Animation de rotation pour l'élément avant */
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Styles pour le pseudo-élément après */
+.box::after {
+    /* Contenu vide */
+    content: '';
+    /* Position absolue pour positionner l'élément par rapport à son conteneur */
+    position: absolute;
+    /* Position et taille de l'élément après */
+    inset: 6px;
+    /* Fond de couleur solide pour créer un cercle centré */
+    background: var(--second-bg-color);
+    /* Bordure arrondie pour créer un cercle */
+    border-radius: 50%;
+    /* Indice z pour contrôler la superposition */
+    z-index: 1;
+}
+
+/* Styles pour le contenu à l'intérieur de la boîte */
+.content {
+    /* Position absolue pour positionner le contenu par rapport à la boîte */
+    position: absolute;
+    /* Décalage du contenu par rapport aux bords de la boîte */
+    inset: 10px;
+    /* Bordure blanche pour créer un effet de bouton */
+    border: 6px solid transparent;
+    /* Bordure arrondie pour créer un cercle autour du contenu */
+    border-radius: 50%;
+    /* Indice z pour contrôler la superposition */
+    z-index: 3;
+    overflow: hidden;
+}
+
+.content img {
+    /* Position absolue pour positionner le contenu par rapport à la boîte */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Style pour le texte "Bienvenue" */
+h1 {
+    /* Position absolue pour placer le texte au-dessus de la boîte */
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    /* Couleur du texte */
+    color: var(--main-color);
+    /* Police et taille de la police */
+    font-family: 'Poppins', sans-serif;
+    font-size: 100px;
+}
+
+/* Style pour le bouton "Entrer dans le site" */
+
+.btn {
+     /* Position absolue pour placer le bouton en dessous de la boîte */
+    position: absolute;
+   bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display : inline-block;
+    padding: 1rem 2.8rem;
+    background: var(--main-color);
+    border-radius: 4rem;
+    color: var(--second-bg-color);
+    box-shadow : 0 0 1rem var(--main-color);
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    font-family: 'Poppins', sans-serif;
+    transition : .5s ease;
+}
+
+.btn:hover {
+    box-shadow : 0 0 3rem var(--main-color);
+}
