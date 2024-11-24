@@ -316,85 +316,88 @@ span {
     color: var(--second-bg-color);
 }
 
-/* Contact Section */
-.contact {
-    padding: 5rem 9%; /* Ajout de marge pour donner plus d'espace */
-    background: var(--bg-color);
-    color: var(--text-color);
-    text-align: center;
-}
-
-.contact .section-title {
-    margin-bottom: 2rem;
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--main-color);
-}
-
 .contact .info {
     display: flex;
     flex-wrap: wrap;
     justify-content: center; /* Centre les éléments horizontalement */
-    align-items: flex-start;
+    align-items: center; /* Aligne verticalement les éléments */
     gap: 2rem;
-    padding: 3rem;
+    padding: 3rem; /* Ajuste l'espacement interne */
     background: var(--second-bg-color);
-    box-shadow: 0 0 24px rgba(0, 0, 0, 0.12);
-    border-radius: 10px;
-    margin-top: 2rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 100%; /* Empêche l'arrière-plan de dépasser */
+}
+
+.contact .info-text .address, 
+.contact .info-text .email {
+    display: flex;
+    align-items: center; /* Aligne les logos et le texte verticalement */
+    gap: 1rem; /* Espacement entre le logo et le texte */
+    font-size: 2.2rem; /* Texte de taille ajustée */
+}
+
+.contact .info-text .address i, 
+.contact .info-text .email i {
+    font-size: 2.2rem; /* Taille des logos égale à celle du texte */
+    color: var(--main-color); /* Couleur pour cohérence avec le texte */
+    flex-shrink: 0; /* Empêche le logo de se redimensionner */
 }
 
 .contact .info-text {
-    flex: 1 1 40%; /* Permet un bon ajustement de la largeur */
-    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Aligne tout à gauche */
+    gap: 2rem; /* Espacement entre les sections */
+    text-align: left; /* Alignement du texte à gauche */
 }
 
 .contact .info-text h4 {
-    font-size: 2rem;
+    font-size: 2.8rem; /* Augmente la taille des titres */
     font-weight: 600;
     color: var(--main-color);
-    margin-bottom: 1rem;
 }
 
 .contact .info-text p {
-    font-size: 1.6rem;
+    font-size: 2rem; /* Texte plus grand */
     color: var(--text-color);
-    margin-bottom: 1rem;
-}
-
-.contact .info-text a {
-    color: var(--main-color);
-    text-decoration: none;
-    font-size: 1.6rem;
-    transition: color 0.3s ease;
-}
-
-.contact .info-text a:hover {
-    color: var(--text-color);
-    text-decoration: underline;
+    margin: 0; /* Supprime les marges */
 }
 
 .contact iframe {
-    flex: 1 1 50%; /* Permet à la carte de prendre 50% de la largeur */
-    border: 0;
+    flex: 1 1 50%; /* La carte occupe 50% */
     width: 100%;
-    height: 400px; /* Fixe une hauteur pour la carte */
-    border-radius: 10px;
-    box-shadow: 0 0 24px rgba(0, 0, 0, 0.12);
+    height: 500px; /* Hauteur plus visible */
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.12);
 }
 
 /* Responsive adjustments */
 @media (max-width: 991px) {
     .contact .info {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column; /* Passe en colonne sur les petits écrans */
+        align-items: center; /* Centre les éléments */
     }
 
     .contact .info-text {
-        text-align: center; /* Aligne le texte au centre pour les écrans plus petits */
+        align-items: center; /* Texte centré */
+        text-align: center;
+        flex: 1 1 100%; /* Prend toute la largeur */
     }
 
     .contact iframe {
-        height: 300px; /* Réduit la taille de la carte pour les petits écrans */
+        height: 400px; /* Taille réduite pour écrans moyens */
+    }
+}
+
+@media (max-width: 576px) {
+    .contact iframe {
+        height: 300px; /* Hauteur minimale pour mobiles */
+    }
+
+    .contact .info-text {
+        gap: 1rem; /* Réduction de l'espacement pour très petits écrans */
     }
 }

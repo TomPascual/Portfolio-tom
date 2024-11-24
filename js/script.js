@@ -57,7 +57,7 @@ ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, .contact 
 /*=== Typed js ===*/
 
 const typed = new Typed('.multiple-text', { 
-    strings: ['Atlernant Informatique', 'Passionné du monde technologique'],
+    strings: ['Alternant Informatique', 'Passionné du monde technologique et du cyberespace'],
     typeSpeed: 100,
     backSpeed: 100,
     loop: true
@@ -69,4 +69,5 @@ document.querySelectorAll('.contact a[href^="http"]').forEach(anchor => {
       window.open(this.href, '_blank');
     });
   });
+  
   
